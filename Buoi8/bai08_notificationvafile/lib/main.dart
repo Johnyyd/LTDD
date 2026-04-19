@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:bai08_notificationvafile/bttl/services/bai1.dart';
-import 'package:bai08_notificationvafile/bttl/views/screen_noti_ex.dart';
+import 'bttl/services/bai1.dart';
+import 'bttl/views/screen_noti_ex.dart';
+import 'bttl/views/screen_todo.dart';
+import 'bttl/views/screen_todo_remind.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,15 +13,85 @@ void main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Notification va File',
+      theme: ThemeData(primarySwatch: Colors.blue),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white, // nền trắng toàn app
+      home: Builder(
+        builder: (context) => Scaffold(
+          appBar: AppBar(title: const Text('Notification va File')),
+          body: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ScreenNotiEx(),
+                        ),
+                      );
+                    },
+                    child: const Text(
+                      'Bai 1',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ScreenTodo()),
+                      );
+                    },
+                    child: const Text(
+                      'Bai 2',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                SizedBox(
+                  width: 200,
+                  height: 50,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.blueAccent,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ScreenTodoRemind()),
+                      );
+                    },
+                    child: const Text(
+                      'Bai 3',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      home: ScreenNotiEx(),
     );
   }
 }

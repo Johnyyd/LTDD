@@ -107,4 +107,26 @@ class NotificationService {
       androidDetails: details,
     );
   }
+
+  /// Đặt lịch tại một thời điểm chính xác
+  Future<void> scheduleNotificationAt({
+    required int id,
+    required String title,
+    required String body,
+    required DateTime scheduledTime,
+  }) async {
+    final details = _createAndroidDetails(
+      channelId: 'todo_remind_channel',
+      channelName: 'Nhắc nhở công việc',
+      channelDescription: 'Thông báo nhắc nhở công việc từ danh sách Todo',
+    );
+
+    await _scheduleNotification(
+      id: id,
+      title: title,
+      body: body,
+      scheduledTime: scheduledTime,
+      androidDetails: details,
+    );
+  }
 }
