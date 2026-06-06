@@ -1,0 +1,7 @@
+A#PT001#true#200000#3#20#2
+B#PT002#false#200000#1#5#true#true
+A#PT003#false#20000#3#2#1
+B#PT004#true#200000#3#10#true#false
+B#PT005#false#200000#4#30#false#true
+A#PT006#true#600000#5#7#3#true
+
